@@ -1,0 +1,14 @@
+version: '3'
+services:
+    simulator-game:
+        build:
+            context: .
+            dockerfile: local.Dockerfile
+        container_name: 'simulator-game'
+        volumes:
+            - .:/usr/src/app/
+        working_dir: /usr/src/app
+        command: sh -c "npm install && npm run dev"
+        ports:
+            - 4040:4040
+            - 5550:5550
